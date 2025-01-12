@@ -31,6 +31,7 @@
             max-width: 400px;
             width: 100%;
             text-align: center;
+            margin: 1rem;
             backdrop-filter: blur(5px);
         }
 
@@ -102,16 +103,17 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 1.5em;
+                padding: 1.5rem;
+                max-width: 90%;
             }
 
             .container h1 {
-                font-size: 1.5em;
+                font-size: 1.5rem;
             }
 
             .form-group {
                 flex-direction: column;
-                gap: 0.5em;
+                gap: 0.5rem;
             }
 
             .form-group input {
@@ -120,25 +122,26 @@
             }
 
             .container input {
-                padding: 0.6em;
+                padding: 0.6rem;
             }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 2.5em;
+                padding: 1rem;
+                max-width: 95%;
             }
 
             .container h1 {
-                font-size: 1em;
+                font-size: 1.2rem;
             }
 
             .form-group {
-                gap: 0.3em;
+                gap: 0.3rem;
             }
 
             .container input {
-                padding: 0.5em;
+                padding: 0.5rem;
             }
         }
     </style>
