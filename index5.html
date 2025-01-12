@@ -156,7 +156,7 @@
             <div class="form-group">
                 <input type="password" placeholder="Password" class="full-width" required id="login-password">
                 <button type="button" class="toggle-password" onclick="togglePassword('login-password', this)">
-                    <span class="material-icons">visibility</span>
+                  
                 </button>
             </div>
             <input type="submit" value="Login">
@@ -176,13 +176,13 @@
             <div class="form-group">
                 <input type="password" placeholder="Password" class="full-width" required id="register-password">
                 <button type="button" class="toggle-password" onclick="togglePassword('register-password', this)">
-                    <span class="material-icons">visibility</span>
+                    
                 </button>
             </div>
             <div class="form-group">
                 <input type="password" placeholder="Confirm Password" class="full-width" required id="confirm-password">
                 <button type="button" class="toggle-password" onclick="togglePassword('confirm-password', this)">
-                    <span class="material-icons">visibility</span>
+                  
                 </button>
             </div>
             <input type="submit" value="Register">
@@ -200,18 +200,6 @@
         function showLogin() {
             document.getElementById('register-page').style.display = 'none';
             document.getElementById('login-page').style.display = 'block';
-        }
-
-        function togglePassword(inputId, button) {
-            const input = document.getElementById(inputId);
-            const icon = button.querySelector('.material-icons');
-            if (input.type === 'password') {
-                input.type = 'text';
-                icon.textContent = 'visibility_off';
-            } else {
-                input.type = 'password';
-                icon.textContent = 'visibility';
-            }
         }
 
         document.querySelector('a[href="register.html"]').addEventListener('click', function(event) {
