@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://farizgamma.github.io/FARWEB/batik%20hd.jpg');
+            color: #fff;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .container h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 0.8rem;
+            background: #2575fc;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .container input[type="submit"]:hover {
+            background: #1e63d6;
+        }
+
+        .container a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-top: 1rem;
+        }
+
+        .container a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .container h1 {
+                font-size: 1.5rem;
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+
+            .form-group input {
+                margin-bottom: 0.5rem;
+            }
+
+            .container input {
+                padding: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-page">
+        <h1>Login</h1>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+        <a href="register.html">Forgot Password?</a>
+    </div>
+
+    <div class="container" id="register-page" style="display: none;">
+        <h1>Register</h1>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Username" required>
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+            </div>
+            <input type="submit" value="Register">
+        </form>
+        <a href="#" onclick="showLogin()">Back to Login</a>
+    </div>
+
+    <script>
+        function showRegister() {
+            document.getElementById('login-page').style.display = 'none';
+            document.getElementById('register-page').style.display = 'block';
+        }
+
+        function showLogin() {
+            document.getElementById('register-page').style.display = 'none';
+            document.getElementById('login-page').style.display = 'block';
+        }
+
+        document.querySelector('a[href="register.html"]').addEventListener('click', function(event) {
+            event.preventDefault();
+            showRegister();
+        });
+    </script>
+</body>
+</html>
+
