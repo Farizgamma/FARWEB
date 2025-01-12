@@ -44,6 +44,7 @@
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 1rem;
+            position: relative;
         }
 
         .form-group input {
@@ -58,6 +59,18 @@
 
         .form-group input.full-width {
             flex: 1 1 100%;
+        }
+
+        .form-group .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #333;
         }
 
         .container input[type="submit"] {
@@ -138,7 +151,10 @@
                 <input type="text" placeholder="Username" class="full-width" required>
             </div>
             <div class="form-group">
-                <input type="password" placeholder="Password" class="full-width" required>
+                <input type="password" placeholder="Password" class="full-width" required id="login-password">
+                <button type="button" class="toggle-password" onclick="togglePassword('login-password', this)">
+                    <span class="material-icons">visibility</span>
+                </button>
             </div>
             <input type="submit" value="Login">
         </form>
@@ -155,16 +171,23 @@
                 <input type="email" placeholder="Email" class="full-width" required>
             </div>
             <div class="form-group">
-                <input type="password" placeholder="Password" class="full-width" required>
+                <input type="password" placeholder="Password" class="full-width" required id="register-password">
+                <button type="button" class="toggle-password" onclick="togglePassword('register-password', this)">
+                    <span class="material-icons">visibility</span>
+                </button>
             </div>
             <div class="form-group">
-                <input type="password" placeholder="Confirm Password" class="full-width" required>
+                <input type="password" placeholder="Confirm Password" class="full-width" required id="confirm-password">
+                <button type="button" class="toggle-password" onclick="togglePassword('confirm-password', this)">
+                    <span class="material-icons">visibility</span>
+                </button>
             </div>
             <input type="submit" value="Register">
         </form>
         <a href="#" onclick="showLogin()">Back to Login</a>
     </div>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script>
         function showRegister() {
             document.getElementById('login-page').style.display = 'none';
@@ -174,6 +197,18 @@
         function showLogin() {
             document.getElementById('register-page').style.display = 'none';
             document.getElementById('login-page').style.display = 'block';
+        }
+
+        function togglePassword(inputId, button) {
+            const input = document.getElementById(inputId);
+            const icon = button.querySelector('.material-icons');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.textContent = 'visibility_off';
+            } else {
+                input.type = 'password';
+                icon.textContent = 'visibility';
+            }
         }
 
         document.querySelector('a[href="register.html"]').addEventListener('click', function(event) {
