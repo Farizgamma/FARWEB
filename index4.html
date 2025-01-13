@@ -3,141 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Account Page</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('https://farizgamma.github.io/FARWEB/batik%20hd.jpg');
-            color: #fff;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            padding: 2rem;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .container h1 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 1rem;
-        }
-
-        .form-group input {
-            flex: 1;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 5px;
-            outline: none;
-            background: rgba(255, 255, 255, 0.8);
             color: #333;
-            box-sizing: border-box;
         }
-
-        .container input[type="submit"] {
+        .account-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             width: 100%;
-            padding: 0.8rem;
-            background: #2575fc;
-            color: #fff;
-            font-weight: bold;
+            max-width: 400px;
+            text-align: center;
+        }
+        .account-container h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #4e54c8;
+        }
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #f4f4f4;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border: 2px solid #ddd;
             cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            transition: background 0.3s;
         }
-
-        .container input[type="submit"]:hover {
-            background: #1e63d6;
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-
-        .container a {
-            color: #fff;
-            text-decoration: none;
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
             display: block;
-            margin-top: 1rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
         }
-
-        .container a:hover {
-            text-decoration: underline;
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #555;
+            transition: border-color 0.3s;
         }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            header p {
-                font-size: 1em;
-            }
-            .gallery {
-                grid-template-columns: 1fr;
-            }
+        .form-group input:focus {
+            outline: none;
+            border-color: #4e54c8;
+            box-shadow: 0 0 5px rgba(78, 84, 200, 0.3);
+        }
+        .forgot-password {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #4e54c8;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .forgot-password:hover {
+            color: #373b99;
+        }
+        .btn {
+            background: #4e54c8;
+            color: #fff;
+            text-align: center;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        .btn:hover {
+            background: #373b99;
+        }
+        h3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 <body>
-    <div class="container" id="login-page">
-        <h1>Login</h1>
-        <form>
+    <div class="account-container">
+        <h2>Account Information</h2>
+        <div class="profile-picture" onclick="uploadProfilePicture()">
+            <img id="profileImage" src="" alt="Profile Picture" style="display: none;">
+            <span id="placeholderText">Add Photo</span>
+        </div>
+        <form id="accountForm">
             <div class="form-group">
-                <input type="text" placeholder="Username" required>
-                <input type="password" placeholder="Password" required>
+                <label for="username">Username</label>
+                <h3><input type="text" id="username" value="johndoe" disabled></h3>
             </div>
-            <input type="submit" value="Login">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <h3><input type="email" id="email" value="johndoe@example.com" disabled></h3>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <h3><input type="password" id="password" value="mypassword" disabled></h3>
+            </div>
+            <a href="#" class="forgot-password" onclick="resetPassword()">Forgot Password?</a>
         </form>
-        <a href="register.html">Forgot Password?</a>
-    </div>
-
-    <div class="container" id="register-page" style="display: none;">
-        <h1>Register</h1>
-        <form>
-            <div class="form-group">
-                <input type="text" placeholder="Username" required>
-                <input type="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <input type="password" placeholder="Password" required>
-                <input type="password" placeholder="Confirm Password" required>
-            </div>
-            <input type="submit" value="Register">
-        </form>
-        <a href="#" onclick="showLogin()">Back to Login</a>
     </div>
 
     <script>
-        function showRegister() {
-            document.getElementById('login-page').style.display = 'none';
-            document.getElementById('register-page').style.display = 'block';
+        function resetPassword() {
+            const newPassword = prompt('Enter your new password:');
+
+            if (newPassword) {
+                alert('Your password has been updated successfully!');
+                document.getElementById('password').value = newPassword;
+            } else {
+                alert('Password reset canceled.');
+            }
         }
 
-        function showLogin() {
-            document.getElementById('register-page').style.display = 'none';
-            document.getElementById('login-page').style.display = 'block';
+        function uploadProfilePicture() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const image = document.getElementById('profileImage');
+                        image.src = e.target.result;
+                        image.style.display = 'block';
+                        document.getElementById('placeholderText').style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
         }
-
-        document.querySelector('a[href="register.html"]').addEventListener('click', function(event) {
-            event.preventDefault();
-            showRegister();
-        });
     </script>
 </body>
 </html>
-
