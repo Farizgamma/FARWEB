@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Page</title>
+    <title>Account Page</title>                                                                        
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -103,6 +103,47 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .account-container {
+                padding: 20px;
+                max-width: 90%;
+            }
+            .profile-picture {
+                width: 80px;
+                height: 80px;
+            }
+            .account-container h2 {
+                font-size: 1.5rem;
+            }
+            .form-group input {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+            .btn {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-picture {
+                width: 70px;
+                height: 70px;
+            }
+            .account-container h2 {
+                font-size: 1.2rem;
+            }
+            .form-group input {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+            .btn {
+                padding: 8px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
