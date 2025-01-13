@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Bucin</title>
+    <style>
+        /* Reset margin dan padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec;
+            color: #d81b60;
+            overflow: hidden;
+        }
+
+        /* Kontainer utama */
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        /* Tombol untuk men-trigger animasi */
+        button {
+            padding: 20px 40px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border: none;
+            background-color: #f44336;
+            color: white;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+        }
+
+        /* Gambar dan teks tersembunyi awalnya */
+        .hidden {
+            display: none;
+        }
+
+        /* Love Animation */
+        .love {
+            font-size: 10em; /* Membuat love lebih besar */
+            font-weight: bold;
+            color: #e91e63;
+            opacity: 0;
+            transform: scale(0);
+            animation: loveAnimation 3s ease-in-out forwards;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        @keyframes loveAnimation {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.5); /* Membesar lebih besar */
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0); /* Memudar */
+            }
+        }
+
+        /* Foto Pasangan (rasio 4:3) */
+        #partnerImage {
+            margin-top: 20px;
+            width: 300px;
+            height: 225px;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        /* Teks romantis */
+        #bucinText {
+            font-size: 2em;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="loveButton">Tekan Untuk Love</button>
+        <div id="loveTransition" class="hidden">
+            <!-- Love icon yang muncul dengan efek -->
+            <div id="loveShape" class="love">❤️</div>
+            <!-- Foto pasangan -->
+            <img id="partnerImage" src="https://farizgamma.github.io/FARWEB/gabut.jpeg" alt="Pasangan">
+            <!-- Teks romantis -->
+            <p id="bucinText">Love youu moreee sayangkuuu😘😘muaah</p>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk menangani tombol klik
+        document.getElementById("loveButton").addEventListener("click", function() {
+            // Menampilkan love dengan efek animasi
+            const loveShape = document.getElementById("loveShape");
+            loveShape.style.opacity = 1;
+
+            // Menampilkan love transition container setelah beberapa detik
+            setTimeout(function() {
+                document.getElementById("loveTransition").classList.remove("hidden");
+            }, 500);
+
+            // Menampilkan gambar pasangan setelah love memudar
+            setTimeout(function() {
+                document.getElementById("partnerImage").style.opacity = 1;
+            }, 3000); // Delay 3 detik setelah love animasi selesai
+
+            // Menampilkan teks romantis setelah gambar muncul
+            setTimeout(function() {
+                document.getElementById("bucinText").style.opacity = 1;
+            }, 5000); // Delay 5 detik setelah gambar muncul
+        });
+    </script>
+</body>
+</html>
